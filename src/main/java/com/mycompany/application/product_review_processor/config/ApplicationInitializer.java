@@ -1,4 +1,4 @@
-package com.mycompany.application.product_review.config;
+package com.mycompany.application.product_review_processor.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

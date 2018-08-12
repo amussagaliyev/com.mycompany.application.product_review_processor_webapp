@@ -29,7 +29,7 @@
         <!-- Application components -->
         <dependency>
             <groupId>com.mycompany.bdk</groupId>
-            <artifactId>bdk_product_review</artifactId>
+            <artifactId>bdk_product_review_queue</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
