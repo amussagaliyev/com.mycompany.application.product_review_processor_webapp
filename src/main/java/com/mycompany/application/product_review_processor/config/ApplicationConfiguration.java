@@ -15,7 +15,6 @@ import com.mycompany.service.product_review.queue_configuration.QueueConfigurati
 
 @Configuration
 @ComponentScan("com.mycompany")
-@PropertySource("classpath:application.properties")
 @Import(QueueConfiguration.class)
 public class ApplicationConfiguration
 {
