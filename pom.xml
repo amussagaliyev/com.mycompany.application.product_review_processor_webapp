@@ -6,7 +6,8 @@
     <artifactId>product_review_processor_webapp</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Web application to process submitted reviews</name>
+	<name>product_review_processor_webapp</name>
+	<description>Web application to process submitted reviews</description>
 
     <properties>
         <springframework.version>5.0.8.RELEASE</springframework.version>
@@ -50,6 +51,38 @@
                     </execution>
                 </executions>
             </plugin>
+
+			<!-- Docker -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.4</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<goals>
+							<goal>build</goal>
+							<goal>push</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<repository>a142857/mycompany.${project.name}</repository>
+					<tag>${project.version}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+					<buildArgs>
+						<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
+			</plugin>
         </plugins>
 
         <finalName>product_review_processor</finalName>
